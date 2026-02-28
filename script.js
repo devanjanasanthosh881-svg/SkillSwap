@@ -25,29 +25,29 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     city: "Calicut",
     teach: ["C"],
     learn: ["Guitar"],
-    email: "rahul@gmail.com",
+    email: "arun@gmail.com",
     rating: 0,
     ratingCount: 0,
     reports: 0
 
   }
   {
-    name: "Rahul",
-    city: "Kochi",
-    teach: ["Python"],
-    learn: ["Guitar"],
-    email: "rahul@gmail.com",
+    name: "Riya M S",
+    city: "Kottayam",
+    teach: ["Karate"],
+    learn: ["Violin"],
+    email: "riya@gmail.com",
     rating: 0,
     ratingCount: 0,
     reports: 0
 
   }
   {
-    name: "Rahul",
+    name: "Mammootty",
     city: "Kochi",
-    teach: ["Python"],
-    learn: ["Guitar"],
-    email: "rahul@gmail.com",
+    teach: ["Acting"],
+    learn: ["Dance"],
+    email: "mammootty@gmail.com",
     rating: 0,
     ratingCount: 0,
     reports: 0
