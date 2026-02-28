@@ -30,7 +30,7 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     ratingCount: 0,
     reports: 0
 
-  }
+  },
   {
     name: "Riya M S",
     city: "Kottayam",
@@ -41,7 +41,7 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     ratingCount: 0,
     reports: 0
 
-  }
+  },
   {
     name: "Mammootty",
     city: "Kochi",
