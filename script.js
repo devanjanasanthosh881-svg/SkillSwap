@@ -8,7 +8,8 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     email: "rahul@gmail.com",
     rating: 0,
     ratingCount: 0,
-    reports: 0
+    reports: 0,
+    blocked: false
   },
   {
     name: "Ananya Nair",
@@ -18,7 +19,8 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     email: "ananya@gmail.com",
     rating: 0,
     ratingCount: 0,
-    reports: 0
+    reports: 0,
+    blocked: false
   },
   {
     name: "Arun Raghav",
@@ -28,7 +30,8 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     email: "arun@gmail.com",
     rating: 0,
     ratingCount: 0,
-    reports: 0
+    reports: 0,
+    blocked: false
 
   },
   {
@@ -39,7 +42,8 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     email: "riya@gmail.com",
     rating: 0,
     ratingCount: 0,
-    reports: 0
+    reports: 0,
+    blocked: false
 
   },
   {
@@ -50,7 +54,8 @@ let users = JSON.parse(localStorage.getItem("users")) || [
     email: "mammootty@gmail.com",
     rating: 0,
     ratingCount: 0,
-    reports: 0
+    reports: 0,
+    blocked: false
 
   }
 ];
@@ -105,6 +110,8 @@ function displayUsers(filteredUsers = users) {
     }
 
     filteredUsers.forEach((user) => {
+
+    if (user.blocked) return;
         let card = document.createElement("div");
         card.className = "user-card";
 
@@ -197,11 +204,16 @@ function rateUser(index, stars) {
   displayUsers();
 }
 function reportUser(index) {
-  users[index].reports += 1;
+    if (confirm("Are you sure you want to report this user?")) {
+        users[index].reports += 1;
 
-  localStorage.setItem("users", JSON.stringify(users));
+        // 🔴 Block user if reports > 3
+        if (users[index].reports > 3) {
+            users[index].blocked = true;
+            alert("🚫 This user has been blocked due to excessive reports.");
+        }
 
-  alert("User reported successfully.");
-
-  displayUsers();
+        localStorage.setItem("users", JSON.stringify(users));
+        displayUsers();
+    }
 }
