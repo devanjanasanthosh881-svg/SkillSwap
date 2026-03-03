@@ -194,7 +194,7 @@ function applyFilters() {
     displayUsers(filtered);
 }
 function rateUser(index, stars) {
-  let user = users[index];
+  let user = users[index];0
 
   user.rating = ((user.rating * user.ratingCount) + stars) / (user.ratingCount + 1);
   user.ratingCount += 1;
